@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqadxw2n453cs"]
+
+[ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Freebies_Icons_Botany.png" id="1_3enkg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us12b"]
+radius = 27.0
+
+[node name="Hops" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3enkg")
+region_enabled = true
+region_rect = Rect2(67, 3, 27, 28)
+
+[node name="Hops" type="Area2D" parent="."]
+light_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hops"]
+shape = SubResource("CircleShape2D_us12b")
