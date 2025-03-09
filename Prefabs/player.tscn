@@ -33,3 +33,4 @@ script = ExtResource("2_gmtm6")
 shape = SubResource("CircleShape2D_u7258")
 
 [connection signal="area_entered" from="InteracitionArea" to="InteracitionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="InteracitionArea" to="InteracitionArea" method="_on_area_exited"]
