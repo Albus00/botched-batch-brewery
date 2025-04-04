@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkaw5gxsglypd"]
+
+[ext_resource type="Script" path="res://Scripts/pickupable_item.gd" id="1_mllrb"]
+[ext_resource type="Resource" uid="uid://dhcd134fdegfn" path="res://Resources/Items/hops.tres" id="2_j8cub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2h4u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us12b"]
+radius = 27.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ron02"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_mllrb")
+item_info = ExtResource("2_j8cub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_x2h4u")
+region_enabled = true
+region_rect = Rect2(67, 3, 27, 28)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+light_mask = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_us12b")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(1, 1, 1, 0.384314)
+material = SubResource("CanvasItemMaterial_ron02")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_hops_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_hops_area_exited"]
