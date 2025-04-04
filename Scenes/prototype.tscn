@@ -18,9 +18,9 @@ zoom_speed = null
 
 [node name="UI" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_66il4")]
 offset_left = -578.0
-offset_top = -372.0
+offset_top = -324.0
 offset_right = 542.0
-offset_bottom = 258.0
+offset_bottom = 306.0
 
 [node name="Hops" parent="." instance=ExtResource("2_upwyh")]
 position = Vector2(334, 170)
