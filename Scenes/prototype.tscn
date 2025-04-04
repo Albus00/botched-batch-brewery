@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://phxpshxdpi31"]
+[gd_scene load_steps=5 format=3 uid="uid://phxpshxdpi31"]
 
 [ext_resource type="PackedScene" uid="uid://dvpvc7j5jrye0" path="res://Prefabs/player.tscn" id="1_bgg16"]
+[ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_3vo45"]
 [ext_resource type="PackedScene" uid="uid://cqadxw2n453cs" path="res://Prefabs/Materials/hops.tscn" id="2_upwyh"]
 [ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/ui.tscn" id="3_66il4"]
 
@@ -9,10 +10,20 @@
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_bgg16")]
 position = Vector2(449, 167)
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+script = ExtResource("2_3vo45")
+zoom_in_level = null
+zoom_out_level = null
+zoom_speed = null
+
+[node name="UI" parent="CharacterBody2D/Camera2D" instance=ExtResource("3_66il4")]
+offset_left = -578.0
+offset_top = -372.0
+offset_right = 542.0
+offset_bottom = 258.0
+
 [node name="Hops" parent="." instance=ExtResource("2_upwyh")]
 position = Vector2(334, 170)
 
 [node name="Hops2" parent="." instance=ExtResource("2_upwyh")]
 position = Vector2(374, 134)
-
-[node name="UI" parent="." instance=ExtResource("3_66il4")]

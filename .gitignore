@@ -15,4 +15,7 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+# Markdown Files
+*.md
+
 .vscode/

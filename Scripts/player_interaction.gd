@@ -13,7 +13,7 @@ func _pickupItem() -> void:
 	if pickupbaleItems.size() > 0:
 		# Add item to inventory
 		var item = pickupbaleItems[0]
-		
+	
 
 		# Remove item from scene
 		item.queue_free()

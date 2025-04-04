@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -15,6 +14,7 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
 
 func get_direction() -> Vector2:
 	var input_x := Input.get_axis("ui_left", "ui_right")
