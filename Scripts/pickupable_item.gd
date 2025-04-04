@@ -1,25 +1,18 @@
 extends Node
 
+# Get stats from the item resource
 @export var item_info: Item
 
-var interactPanel: Panel
-
+# Get nodes from the scene tree
 @onready var sprite2D: Sprite2D = $Sprite2D
 @onready var area2D: Area2D = $Area2D
+@onready var interactPanel: Panel = $Control/Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	interactPanel = get_node("Control/Panel") as Panel
+	# Setup item
 	interactPanel.visible = false
-
-	print(item_info.name)
-	print(item_info.description)
-	print(item_info.sprite)
-	sprite2D.texture = AtlasTexture.new()
 	sprite2D.texture = item_info.sprite
-
-	# sprite2D.texture = item_info.sprite # TODO: Fix this conversion, maybe https://www.reddit.com/r/godot/comments/1ahsk5o/swapping_sprite2ds_atlastexture_in_code/
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -1,7 +1,9 @@
 extends Node
 
-var pickupbaleItems: Array[Node] = []
+var pickupbaleItems: Array[Node2D] = []
 
+@onready var playerInventory: PlayerInventory = $"../Inventory"
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -10,15 +12,15 @@ func _process(_delta: float) -> void:
 
 
 func _pickupItem() -> void:
-	if pickupbaleItems.size() > 0:
+	if playerInventory.stacks.size() <= playerInventory.MAX_SIZE:
 		# Add item to inventory
 		var item = pickupbaleItems[0]
-		
+
+		playerInventory.addItem(item.item_info)
 
 		# Remove item from scene
 		item.queue_free()
 		pickupbaleItems.erase(0)
-		print("Picked up item")
 
 func _on_area_entered(area: Area2D) -> void:
 	pickupbaleItems.push_back(area.get_parent())

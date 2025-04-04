@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvpvc7j5jrye0"]
+
+[ext_resource type="Script" path="res://Scripts/Player/player_movement.gd" id="1_lewlf"]
+[ext_resource type="Script" path="res://Scripts/Player/player_interaction.gd" id="2_gmtm6"]
+[ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_orexp"]
+[ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/Player/ui.tscn" id="3_85lxh"]
+[ext_resource type="PackedScene" uid="uid://b34pcoijbidcm" path="res://Prefabs/Interactable/ui_item.tscn" id="4_dtsmw"]
+[ext_resource type="Script" path="res://Scripts/Player/player_inventory.gd" id="5_bercc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_stt8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_empbq"]
+size = Vector2(20, 37)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u7258"]
+radius = 36.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+position = Vector2(56, 0)
+motion_mode = 1
+script = ExtResource("1_lewlf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_orexp")
+zoom_in_level = null
+zoom_out_level = null
+zoom_speed = null
+
+[node name="UI" parent="Camera2D" instance=ExtResource("3_85lxh")]
+offset_left = -578.0
+offset_top = -324.0
+offset_right = 542.0
+offset_bottom = 306.0
+
+[node name="UI_Item1" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+position = Vector2(498, 599)
+scale = Vector2(1.69, 1.69)
+
+[node name="UI_Item2" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+position = Vector2(555, 599)
+scale = Vector2(1.69, 1.69)
+
+[node name="UI_Item3" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+position = Vector2(612, 599)
+scale = Vector2(1.69, 1.69)
+
+[node name="UI_Item4" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+position = Vector2(669, 599)
+scale = Vector2(1.69, 1.69)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(20, 18.5)
+mesh = SubResource("CapsuleMesh_stt8g")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_empbq")
+
+[node name="InteracitionArea" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("2_gmtm6")
+
+[node name="InteractionCollider" type="CollisionShape2D" parent="InteracitionArea"]
+shape = SubResource("CircleShape2D_u7258")
+
+[node name="Inventory" type="Node2D" parent="." node_paths=PackedStringArray("itemSlots")]
+script = ExtResource("5_bercc")
+itemSlots = [NodePath("../Camera2D/UI/UI_Item1"), NodePath("../Camera2D/UI/UI_Item2"), NodePath("../Camera2D/UI/UI_Item3"), NodePath("../Camera2D/UI/UI_Item4")]
+
+[connection signal="area_entered" from="InteracitionArea" to="InteracitionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="InteracitionArea" to="InteracitionArea" method="_on_area_exited"]
