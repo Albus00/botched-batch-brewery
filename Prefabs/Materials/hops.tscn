@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqadxw2n453cs"]
+[gd_scene load_steps=6 format=3 uid="uid://cqadxw2n453cs"]
 
 [ext_resource type="Script" path="res://Scripts/pickupable_item.gd" id="1_0ncl6"]
 [ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Freebies_Icons_Botany.png" id="1_3enkg"]
+[ext_resource type="Resource" uid="uid://dhcd134fdegfn" path="res://Resources/Items/hops.tres" id="2_d7yqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_us12b"]
 radius = 27.0
@@ -10,6 +11,7 @@ radius = 27.0
 
 [node name="Hops" type="Node2D"]
 script = ExtResource("1_0ncl6")
+item_info = ExtResource("2_d7yqe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3enkg")

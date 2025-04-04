@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_3vo45"]
 [ext_resource type="PackedScene" uid="uid://cqadxw2n453cs" path="res://Prefabs/Materials/hops.tscn" id="2_upwyh"]
 [ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/ui.tscn" id="3_66il4"]
+[ext_resource type="PackedScene" uid="uid://dkaw5gxsglypd" path="res://Prefabs/item.tscn" id="4_uc6t6"]
 
 [node name="Scene" type="Node2D"]
 

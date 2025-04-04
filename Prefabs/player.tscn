@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvpvc7j5jrye0"]
 
-[ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_lewlf"]
-[ext_resource type="Script" path="res://Scripts/player_interaction.gd" id="2_gmtm6"]
+[ext_resource type="Script" path="res://Scripts/Player/player_movement.gd" id="1_lewlf"]
+[ext_resource type="Script" path="res://Scripts/Player/player_interaction.gd" id="2_gmtm6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_stt8g"]
 
@@ -11,7 +11,7 @@ size = Vector2(20, 37)
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7258"]
 radius = 36.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 z_index = 10
 position = Vector2(56, 0)
 motion_mode = 1
