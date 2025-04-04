@@ -4,7 +4,6 @@ extends Node
 
 var interactPanel: Panel
 
-
 @onready var sprite2D: Sprite2D = $Sprite2D
 @onready var area2D: Area2D = $Area2D
 
@@ -16,7 +15,10 @@ func _ready() -> void:
 	print(item_info.name)
 	print(item_info.description)
 	print(item_info.sprite)
-	Sprite2D.texture = item_info.sprite # TODO: Fix this conversion, maybe https://www.reddit.com/r/godot/comments/1ahsk5o/swapping_sprite2ds_atlastexture_in_code/
+	sprite2D.texture = AtlasTexture.new()
+	sprite2D.texture = item_info.sprite
+
+	# sprite2D.texture = item_info.sprite # TODO: Fix this conversion, maybe https://www.reddit.com/r/godot/comments/1ahsk5o/swapping_sprite2ds_atlastexture_in_code/
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

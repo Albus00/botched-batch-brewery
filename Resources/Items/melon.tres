@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c5emxs2k8kba8"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/item.gd" id="1_77hf4"]
+[ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Freebies_Icons_Botany.png" id="2_s5pty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tadi7"]
+atlas = ExtResource("2_s5pty")
+region = Rect2(66, 131, 28, 28)
+
+[resource]
+script = ExtResource("1_77hf4")
+name = "Melon"
+description = "Can you make melon juice?"
+sprite = SubResource("AtlasTexture_tadi7")

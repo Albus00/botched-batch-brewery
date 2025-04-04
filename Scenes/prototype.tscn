@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://phxpshxdpi31"]
+[gd_scene load_steps=7 format=3 uid="uid://phxpshxdpi31"]
 
 [ext_resource type="PackedScene" uid="uid://dvpvc7j5jrye0" path="res://Prefabs/player.tscn" id="1_bgg16"]
 [ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_3vo45"]
-[ext_resource type="PackedScene" uid="uid://cqadxw2n453cs" path="res://Prefabs/Materials/hops.tscn" id="2_upwyh"]
 [ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/ui.tscn" id="3_66il4"]
-[ext_resource type="PackedScene" uid="uid://dkaw5gxsglypd" path="res://Prefabs/item.tscn" id="4_uc6t6"]
+[ext_resource type="PackedScene" uid="uid://dkaw5gxsglypd" path="res://Prefabs/item.tscn" id="4_uq4fv"]
+[ext_resource type="Resource" uid="uid://dhcd134fdegfn" path="res://Resources/Items/hops.tres" id="5_uf4fy"]
+[ext_resource type="Resource" uid="uid://c5emxs2k8kba8" path="res://Resources/Items/melon.tres" id="6_pj8lr"]
 
 [node name="Scene" type="Node2D"]
 
@@ -23,8 +24,14 @@ offset_top = -324.0
 offset_right = 542.0
 offset_bottom = 306.0
 
-[node name="Hops" parent="." instance=ExtResource("2_upwyh")]
-position = Vector2(334, 170)
+[node name="Item" parent="." instance=ExtResource("4_uq4fv")]
+position = Vector2(332, 199)
+item_info = ExtResource("5_uf4fy")
 
-[node name="Hops2" parent="." instance=ExtResource("2_upwyh")]
-position = Vector2(374, 134)
+[node name="Item2" parent="." instance=ExtResource("4_uq4fv")]
+position = Vector2(461, 268)
+item_info = ExtResource("6_pj8lr")
+
+[node name="Item3" parent="." instance=ExtResource("4_uq4fv")]
+position = Vector2(370, 267)
+item_info = ExtResource("6_pj8lr")
