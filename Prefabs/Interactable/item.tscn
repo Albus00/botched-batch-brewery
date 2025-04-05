@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkaw5gxsglypd"]
 
 [ext_resource type="Script" path="res://Scripts/pickupable_item.gd" id="1_mllrb"]
-[ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Freebies_Icons_Botany.png" id="2_c2vx7"]
+[ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Items/Freebies_Icons_Botany.png" id="2_c2vx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xoth3"]
 atlas = ExtResource("2_c2vx7")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw2lmc0rmiave"
-path="res://.godot/imported/Freebies_Icons_Botany.png-0678e45af32e5d0c8336aca5f45920f6.ctex"
+uid="uid://bjjb3e4y146gj"
+path="res://.godot/imported/Barrel.png-ec265d0f888b8eae4710041413effbf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Freebies_Icons_Botany.png"
-dest_files=["res://.godot/imported/Freebies_Icons_Botany.png-0678e45af32e5d0c8336aca5f45920f6.ctex"]
+source_file="res://Sprites/Brewing/Barrel.png"
+dest_files=["res://.godot/imported/Barrel.png-ec265d0f888b8eae4710041413effbf4.ctex"]
 
 [params]
 

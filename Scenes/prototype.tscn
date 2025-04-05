@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://phxpshxdpi31"]
+[gd_scene load_steps=6 format=3 uid="uid://phxpshxdpi31"]
 
 [ext_resource type="PackedScene" uid="uid://dvpvc7j5jrye0" path="res://Prefabs/Player/player.tscn" id="1_bgg16"]
 [ext_resource type="PackedScene" uid="uid://dkaw5gxsglypd" path="res://Prefabs/Interactable/item.tscn" id="4_uq4fv"]
 [ext_resource type="Resource" uid="uid://dhcd134fdegfn" path="res://Resources/Items/hops.tres" id="5_uf4fy"]
+[ext_resource type="Resource" uid="uid://byvo68tkeqh3h" path="res://Resources/Items/grains.tres" id="5_vhl21"]
 [ext_resource type="Resource" uid="uid://c5emxs2k8kba8" path="res://Resources/Items/melon.tres" id="6_pj8lr"]
 
 [node name="Scene" type="Node2D"]
@@ -21,3 +22,7 @@ item_info = ExtResource("6_pj8lr")
 [node name="Item3" parent="." instance=ExtResource("4_uq4fv")]
 position = Vector2(370, 267)
 item_info = ExtResource("6_pj8lr")
+
+[node name="Item4" parent="." instance=ExtResource("4_uq4fv")]
+position = Vector2(269, 285)
+item_info = ExtResource("5_vhl21")

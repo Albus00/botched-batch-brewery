@@ -34,18 +34,22 @@ offset_right = 542.0
 offset_bottom = 306.0
 
 [node name="UI_Item1" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+visible = false
 position = Vector2(498, 599)
 scale = Vector2(1.69, 1.69)
 
 [node name="UI_Item2" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+visible = false
 position = Vector2(555, 599)
 scale = Vector2(1.69, 1.69)
 
 [node name="UI_Item3" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+visible = false
 position = Vector2(612, 599)
 scale = Vector2(1.69, 1.69)
 
 [node name="UI_Item4" parent="Camera2D/UI" instance=ExtResource("4_dtsmw")]
+visible = false
 position = Vector2(669, 599)
 scale = Vector2(1.69, 1.69)
 

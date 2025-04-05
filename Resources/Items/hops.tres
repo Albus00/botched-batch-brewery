@@ -1,14 +1,13 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dhcd134fdegfn"]
 
 [ext_resource type="Script" path="res://Scripts/Interactable/item.gd" id="1_k8waw"]
-[ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Freebies_Icons_Botany.png" id="2_iqdw5"]
+[ext_resource type="Texture2D" uid="uid://oo314yxastiw" path="res://Sprites/Items/grains.png" id="2_wu1t2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvrki"]
-atlas = ExtResource("2_iqdw5")
-region = Rect2(67, 3, 27, 28)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0gfh"]
+atlas = ExtResource("2_wu1t2")
 
 [resource]
 script = ExtResource("1_k8waw")
-name = "Hops"
-description = "It's hops"
-sprite = SubResource("AtlasTexture_nvrki")
+name = "Grains"
+description = "Just like bread, right?"
+sprite = SubResource("AtlasTexture_y0gfh")
