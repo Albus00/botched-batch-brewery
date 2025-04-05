@@ -26,3 +26,9 @@ item_info = ExtResource("6_pj8lr")
 [node name="Item4" parent="." instance=ExtResource("4_uq4fv")]
 position = Vector2(269, 285)
 item_info = ExtResource("5_vhl21")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = -187.0
+offset_top = -168.0
+offset_right = 1308.0
+offset_bottom = 762.0
