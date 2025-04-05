@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://byvo68tkeqh3h"]
 
-[ext_resource type="Script" path="res://Scripts/Interactable/item.gd" id="1_fucd0"]
+[ext_resource type="Script" path="res://Scripts/Interactable/Classes/item.gd" id="1_fucd0"]
 [ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Items/Freebies_Icons_Botany.png" id="2_yi2ng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvrki"]

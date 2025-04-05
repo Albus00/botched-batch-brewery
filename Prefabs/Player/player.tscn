@@ -54,6 +54,7 @@ position = Vector2(669, 599)
 scale = Vector2(1.69, 1.69)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+z_index = 10
 position = Vector2(-4.76837e-07, 0)
 scale = Vector2(20, 18.5)
 mesh = SubResource("CapsuleMesh_stt8g")
@@ -62,6 +63,7 @@ mesh = SubResource("CapsuleMesh_stt8g")
 shape = SubResource("RectangleShape2D_empbq")
 
 [node name="InteracitionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 script = ExtResource("2_gmtm6")
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BrewingStation" load_steps=4 format=3 uid="uid://dxaxfyuqw0750"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/Classes/brewing_station.gd" id="1_k63jy"]
+[ext_resource type="Texture2D" uid="uid://bjjb3e4y146gj" path="res://Sprites/Brewing/Barrel.png" id="2_cuvgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uly8"]
+atlas = ExtResource("2_cuvgj")
+region = Rect2(18, 0, 18, 18)
+
+[resource]
+script = ExtResource("1_k63jy")
+name = "Barrel"
+description = "Someone left a perfectly good barrel here."
+sprite = SubResource("AtlasTexture_5uly8")

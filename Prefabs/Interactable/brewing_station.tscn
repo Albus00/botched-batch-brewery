@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyktf4h3viax3"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/interactable_station.gd" id="1_jhfd3"]
+[ext_resource type="Texture2D" uid="uid://bjjb3e4y146gj" path="res://Sprites/Brewing/Barrel.png" id="2_77orf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoth3"]
+atlas = ExtResource("2_77orf")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us12b"]
+radius = 27.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ron02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv5v6"]
+size = Vector2(36, 22)
+
+[node name="Station" type="Node2D"]
+script = ExtResource("1_jhfd3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 20
+texture_filter = 1
+scale = Vector2(2.22222, 2.22222)
+texture = SubResource("AtlasTexture_xoth3")
+region_rect = Rect2(4, 3, 26, 28)
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_us12b")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(0, 0, 0, 0.662745)
+material = SubResource("CanvasItemMaterial_ron02")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_lv5v6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_hops_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_hops_area_exited"]
