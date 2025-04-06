@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player/player_movement.gd" id="1_lewlf"]
 [ext_resource type="Script" path="res://Scripts/Player/player_interaction.gd" id="2_gmtm6"]
-[ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_orexp"]
+[ext_resource type="Script" path="res://Scenes/Player/player_camera.gd" id="2_orexp"]
 [ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/Player/ui.tscn" id="3_85lxh"]
 [ext_resource type="PackedScene" uid="uid://b34pcoijbidcm" path="res://Prefabs/Interactable/ui_item.tscn" id="4_dtsmw"]
 [ext_resource type="Script" path="res://Scripts/Player/player_inventory.gd" id="5_bercc"]
