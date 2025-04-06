@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://dhcd134fdegfn" path="res://Resources/Items/hops.tres" id="5_uf4fy"]
 [ext_resource type="Resource" uid="uid://byvo68tkeqh3h" path="res://Resources/Items/grains.tres" id="5_vhl21"]
 [ext_resource type="Resource" uid="uid://c5emxs2k8kba8" path="res://Resources/Items/melon.tres" id="6_pj8lr"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="2_3vo45"]
+[ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/ui.tscn" id="3_66il4"]
 
 [node name="Scene" type="Node2D"]
 
