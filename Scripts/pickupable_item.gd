@@ -20,8 +20,12 @@ func _process(_delta: float) -> void:
 
 
 func _on_hops_area_entered(_area: Area2D) -> void:
+	if item_info.inInventory:
+		return
 	interactPanel.visible = true
 
 
 func _on_hops_area_exited(_area: Area2D) -> void:
+	if item_info.inInventory:
+		return
 	interactPanel.visible = false
