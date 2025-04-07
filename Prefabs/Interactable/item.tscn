@@ -23,12 +23,12 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_xoth3")
 region_rect = Rect2(4, 3, 26, 28)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ItemArea" type="Area2D" parent="."]
 visible = false
 light_mask = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
 shape = SubResource("CircleShape2D_us12b")
 
 [node name="Control" type="Control" parent="."]
@@ -49,5 +49,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_hops_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_hops_area_exited"]
+[connection signal="area_entered" from="ItemArea" to="." method="on_area_entered"]
+[connection signal="area_exited" from="ItemArea" to="." method="on_area_exited"]

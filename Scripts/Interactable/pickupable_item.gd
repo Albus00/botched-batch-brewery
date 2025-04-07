@@ -19,9 +19,9 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_hops_area_entered(_area: Area2D) -> void:
+func on_area_entered(_area: Area2D) -> void:
 	interactPanel.visible = true
 
 
-func _on_hops_area_exited(_area: Area2D) -> void:
+func on_area_exited(_area: Area2D) -> void:
 	interactPanel.visible = false
