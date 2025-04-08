@@ -2,7 +2,6 @@ extends Node
 
 # Get stats from the item resource
 @export var station_info: BrewingStation
-@export var tile_size: int = 16
 
 # Get nodes from the scene tree
 @onready var sprite2D: Sprite2D = $Sprite2D
@@ -15,6 +14,8 @@ var mouse_position: Vector2
 var mouse_position_start: Vector2
 var station_position_start: Vector2
 var isMoving: bool = false
+var tile_size: int
+var tile_map_scale: Vector2
 
 func startMovingStation() -> void:
 	isMoving = true
@@ -28,6 +29,8 @@ func _ready() -> void:
 	# Setup item
 	interactPanel.visible = false
 	sprite2D.texture = station_info.sprite
+	tile_size = tile_map.tile_set.tile_size.x
+	tile_map_scale = tile_map.scale
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,13 +45,11 @@ func move_station() -> void:
 	if !isMoving:
 		return
 
-	# TODO: Make the station snap to the actual grid
-	# Attach the station to the mouse cursor and snap to the grid
-	var mouse_cell_position = tile_map.local_to_map(mouse_position)
-	var cell_movement = tile_map.map_to_local(mouse_cell_position) - mouse_position_start
-	
+	# Get the mouse position in relation to the tile map
+	var mouse_position_delta = (mouse_position - mouse_position_start) / tile_map_scale # Normalize mouse movement by tile_map scale
+	var mouse_cell_movement = floor(mouse_position_delta / tile_size) # Get how many cells the mouse has moved
 	# Move the station
-	self.position = station_position_start + cell_movement
+	self.position = station_position_start + mouse_cell_movement * tile_size * tile_map_scale # Move the station to the new position
 
 
 func _on_hops_area_entered(_area: Area2D) -> void:
