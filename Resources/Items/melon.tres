@@ -10,5 +10,6 @@ region = Rect2(66, 131, 28, 28)
 [resource]
 script = ExtResource("1_vvr7w")
 name = "Melon"
+inInventory = false
 description = "Can you make juice of watermelon?"
 sprite = SubResource("AtlasTexture_jsfrx")

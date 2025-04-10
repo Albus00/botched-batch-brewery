@@ -7,8 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/Build System/station_placement.gd" id="5_ta044"]
 [ext_resource type="Resource" uid="uid://dxaxfyuqw0750" path="res://Resources/Brewing Station/mashing_station.tres" id="6_455je"]
 [ext_resource type="Resource" uid="uid://c5emxs2k8kba8" path="res://Resources/Items/melon.tres" id="6_pj8lr"]
-[ext_resource type="Script" path="res://Scripts/Player/player_camera.gd" id="2_3vo45"]
-[ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/ui.tscn" id="3_66il4"]
 
 [node name="Scene" type="Node2D"]
 
