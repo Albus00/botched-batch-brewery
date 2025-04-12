@@ -17,13 +17,6 @@ var isMoving: bool = false
 var tile_size: int
 var tile_map_scale: Vector2
 
-func startMovingStation() -> void:
-	isMoving = true
-	mouse_position_start = get_viewport().get_mouse_position()
-	station_position_start = self.position
-	staticCollider.disabled = true
-	interactionCollider.disabled = true
-	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Setup item
@@ -41,6 +34,14 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_position = event.position
 
+func startMovingStation() -> void:
+	isMoving = true
+	mouse_position_start = get_viewport().get_mouse_position()
+	station_position_start = self.position
+	staticCollider.disabled = true
+	interactionCollider.disabled = true
+	
+
 func move_station() -> void:
 	if !isMoving:
 		return
@@ -52,9 +53,9 @@ func move_station() -> void:
 	self.position = station_position_start + mouse_cell_movement * tile_size * tile_map_scale # Move the station to the new position
 
 
-func _on_hops_area_entered(_area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	interactPanel.visible = true
 
 
-func _on_hops_area_exited(_area: Area2D) -> void:
+func _on_area_exited(_area: Area2D) -> void:
 	interactPanel.visible = false

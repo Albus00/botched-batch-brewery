@@ -29,7 +29,8 @@ func _pickupItem() -> void:
 func _interactStation() -> void:
 	# Get the first station in the array
 	var station = interactableStations[0]
-	station.startMovingStation()
+	station.open_brew_panel()
+	# station.startMovingStation()
 
 	
 func _on_area_entered(area: Area2D) -> void:
