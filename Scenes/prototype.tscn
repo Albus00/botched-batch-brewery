@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://c6pp6nq27oaum" path="res://Tilesets/factory floor.tres" id="1_jcrj5"]
 [ext_resource type="PackedScene" uid="uid://dkaw5gxsglypd" path="res://Prefabs/Interactable/item.tscn" id="4_uq4fv"]
 [ext_resource type="PackedScene" uid="uid://cyktf4h3viax3" path="res://Prefabs/Interactable/brewing_station.tscn" id="5_8rhfr"]
-[ext_resource type="Script" path="res://Scripts/Build System/station_placement.gd" id="5_ta044"]
+[ext_resource type="Script" uid="uid://casg28261j0s6" path="res://Scripts/Build System/station_placement.gd" id="5_ta044"]
 [ext_resource type="Resource" uid="uid://dxaxfyuqw0750" path="res://Resources/Brewing Station/mashing_station.tres" id="6_455je"]
 [ext_resource type="Resource" uid="uid://c5emxs2k8kba8" path="res://Resources/Items/melon.tres" id="6_pj8lr"]
 

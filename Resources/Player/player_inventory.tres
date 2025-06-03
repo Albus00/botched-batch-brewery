@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerInventory" load_steps=2 format=3 uid="uid://cypo46t7ygnps"]
 
-[ext_resource type="Script" path="res://Scripts/Player/player_inventory.gd" id="1_f7mkg"]
+[ext_resource type="Script" uid="uid://dwvknkmrk0q21" path="res://Scripts/Player/player_inventory.gd" id="1_f7mkg"]
 
 [resource]
 script = ExtResource("1_f7mkg")
+itemSlots = Array[Node2D]([])

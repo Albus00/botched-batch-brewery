@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkaw5gxsglypd"]
 
-[ext_resource type="Script" path="res://Scripts/Interactable/pickupable_item.gd" id="1_4ytqu"]
+[ext_resource type="Script" uid="uid://c20wj34v3l4m3" path="res://Scripts/Interactable/pickupable_item.gd" id="1_4ytqu"]
 [ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Items/Freebies_Icons_Botany.png" id="2_c2vx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xoth3"]

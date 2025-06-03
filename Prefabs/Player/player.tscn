@@ -1,11 +1,10 @@
 [gd_scene load_steps=45 format=3 uid="uid://dvpvc7j5jrye0"]
 
-[ext_resource type="Script" path="res://Scripts/Player/player_movement.gd" id="1_lewlf"]
-[ext_resource type="Script" path="res://Scripts/Player/player_interaction.gd" id="2_gmtm6"]
-[ext_resource type="Script" path="res://Scenes/player_camera.gd" id="2_orexp"]
+[ext_resource type="Script" uid="uid://dg5oe6jotcrwn" path="res://Scripts/Player/player_movement.gd" id="1_lewlf"]
+[ext_resource type="Script" uid="uid://s41ofi1by1q7" path="res://Scripts/Player/player_interaction.gd" id="2_gmtm6"]
 [ext_resource type="PackedScene" uid="uid://b0r1klyrv6gsh" path="res://Prefabs/Player/ui.tscn" id="3_85lxh"]
 [ext_resource type="PackedScene" uid="uid://b34pcoijbidcm" path="res://Prefabs/Interactable/ui_item.tscn" id="4_dtsmw"]
-[ext_resource type="Script" path="res://Scripts/Player/player_inventory.gd" id="5_bercc"]
+[ext_resource type="Script" uid="uid://dwvknkmrk0q21" path="res://Scripts/Player/player_inventory.gd" id="5_bercc"]
 [ext_resource type="Texture2D" uid="uid://naq4jjquiuik" path="res://Sprites/Player/D_Idle.png" id="7_klqv0"]
 [ext_resource type="Texture2D" uid="uid://bl7mrfse4cv7q" path="res://Sprites/Player/U_Idle.png" id="8_dl5i2"]
 [ext_resource type="Texture2D" uid="uid://dyhajvjde5jr1" path="res://Sprites/Player/D_Walk.png" id="9_5011i"]
@@ -258,6 +257,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nshwd"]
 radius = 16.0103
 
+[sub_resource type="Resource" id="Resource_dtqie"]
+metadata/__load_path__ = "res://Scenes/player_camera.gd"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7258"]
 radius = 36.0
 
@@ -278,7 +280,7 @@ position = Vector2(0, 9.23)
 shape = SubResource("CircleShape2D_nshwd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("2_orexp")
+script = SubResource("Resource_dtqie")
 zoom_in_level = null
 zoom_out_level = null
 zoom_speed = null

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dhcd134fdegfn"]
 
-[ext_resource type="Script" path="res://Scripts/Interactable/Classes/item.gd" id="1_k8waw"]
+[ext_resource type="Script" uid="uid://darmc1cpcher0" path="res://Scripts/Interactable/Classes/item.gd" id="1_k8waw"]
 [ext_resource type="Texture2D" uid="uid://oo314yxastiw" path="res://Sprites/Items/grains.png" id="2_wu1t2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0gfh"]
@@ -9,5 +9,6 @@ atlas = ExtResource("2_wu1t2")
 [resource]
 script = ExtResource("1_k8waw")
 name = "Grains"
+inInventory = false
 description = "Just like bread, right?"
 sprite = SubResource("AtlasTexture_y0gfh")

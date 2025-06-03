@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyktf4h3viax3"]
 
-[ext_resource type="Script" path="res://Scripts/Interactable/interactable_station.gd" id="1_jhfd3"]
+[ext_resource type="Script" uid="uid://c42n0v6xor54x" path="res://Scripts/Interactable/interactable_station.gd" id="1_jhfd3"]
 [ext_resource type="Texture2D" uid="uid://bjjb3e4y146gj" path="res://Sprites/Brewing/Barrel.png" id="2_77orf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xoth3"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b34pcoijbidcm"]
 
-[ext_resource type="Script" path="res://Scripts/Player/ui_item.gd" id="1_0gnoe"]
+[ext_resource type="Script" uid="uid://d1nyckvx27022" path="res://Scripts/Player/ui_item.gd" id="1_0gnoe"]
 [ext_resource type="Texture2D" uid="uid://cw2lmc0rmiave" path="res://Sprites/Items/Freebies_Icons_Botany.png" id="2_kyh3h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnee2"]
