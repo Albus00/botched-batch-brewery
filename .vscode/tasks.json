@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Godot",
+      "type": "process",
+      "command": "${env:GODOT4}",
+      "args": [
+        "--path",
+        "${workspaceFolder}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bujrj78yk3eug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lems"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d60fm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqsrf"]
+albedo_color = Color(0.8861787, 0.9192094, 0.8370773, 1)
+
+[node name="Island" type="StaticBody3D" unique_id=1991527644]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1761891972]
+shape = SubResource("BoxShape3D_7lems")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2095475573]
+mesh = SubResource("BoxMesh_d60fm")
+surface_material_override/0 = SubResource("StandardMaterial3D_tqsrf")
