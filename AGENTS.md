@@ -12,8 +12,7 @@ Guidance for agentic coding assistants working in this repository.
 - Language: C# via Godot's .NET integration
 - IDE: VS Code with the coreclr / C# Dev Kit extension
 
-There is no `package.json`, `*.sln`, or committed `*.csproj`. Godot generates the C# project
-files automatically. The `.godot/` directory is gitignored and should never be committed.
+The `.godot/` directory is gitignored and should never be committed.
 
 ---
 
@@ -21,20 +20,24 @@ files automatically. The `.godot/` directory is gitignored and should never be c
 
 ```
 botched-batch-brewery/
-├── Prefabs/               # Reusable .tscn scene prefabs
-│   ├── island.tscn
+├── Prefabs/
+│   ├── Enviroment/
+│   │   ├── box.tscn
+│   │   └── island.tscn
 │   └── Gameplay/
 │       └── player.tscn
-├── Scenes/                # Top-level scenes (entry points / levels)
+├── Scenes/
 │   └── Island.tscn
-├── Scripts/               # All C# source files
+├── Scripts/
 │   └── Gameplay/
 │       ├── Player.cs
-│       └── Player.cs.uid
+│       ├── Player.cs.uid
+│       ├── FollowCamera.cs
+│       └── FollowCamera.cs.uid
 ├── .editorconfig
-├── .prettierrc
-├── project.godot          # Godot project configuration
-└── AGENTS.md              # This file
+├── .vscode/
+├── project.godot
+└── AGENTS.md
 ```
 
 New scripts should live under `Scripts/` in a subfolder that mirrors their gameplay domain
@@ -66,9 +69,6 @@ $GODOT4 --path .
 dotnet build
 ```
 
-Godot generates the `.csproj` on first editor launch. Run the editor at least once before
-using `dotnet build` directly.
-
 ### Run in Headless Mode (CI / scripted)
 
 ```bash
@@ -94,33 +94,11 @@ When tests are added:
   Godot runtime.
 - Place test files in a top-level `Tests/` directory mirroring the `Scripts/` structure.
 
-### Running a Single Test (future guidance)
-
-```bash
-# xUnit / NUnit — once a test project is configured:
-dotnet test --filter "FullyQualifiedName~MyTestClass.MyTestMethod"
-
-# GUT (GDScript-based) — once installed:
-$GODOT4 --path . --headless -s addons/gut/gut_cmdln.gd -gtest=res://Tests/MyTest.gd
-```
-
 ---
 
 ## Linting & Formatting
 
 ### Prettier (for non-C# files: JSON, YAML, Markdown, etc.)
-
-Config: `.prettierrc`
-
-```json
-{
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "printWidth": 100,
-  "tabWidth": 4
-}
-```
 
 ```bash
 npx prettier --write .       # format all supported files
@@ -129,17 +107,11 @@ npx prettier --check .       # check without writing
 
 ### C# Formatting
 
-No Roslyn analyser or `dotnet format` configuration is committed yet. Follow the style
-conventions below. When a `.editorconfig` with C# rules is added, run:
+The project includes an `.editorconfig` with C# formatting rules. Run:
 
 ```bash
 dotnet format
 ```
-
-### EditorConfig
-
-`.editorconfig` enforces `charset = utf-8` globally. Line endings are normalised to **LF**
-via `.gitattributes` — do not commit CRLF line endings.
 
 ---
 
@@ -148,16 +120,18 @@ via `.gitattributes` — do not commit CRLF line endings.
 ### File Layout
 
 1. `using` directives — Godot namespaces first, then System, then third-party
-2. `namespace` declaration (add once namespaces are introduced project-wide)
+2. XML documentation summary (recommended for public APIs)
 3. Class declaration
 
 ```csharp
 using Godot;
 using System;
 
+/// <summary>
+/// Brief description of what this class does.
+/// </summary>
 public partial class MyNode : Node3D
 {
-    // ...
 }
 ```
 
@@ -174,33 +148,18 @@ public partial class Player : CharacterBody3D { }
 
 | Element | Convention | Example |
 |---|---|---|
-| Classes | PascalCase | `Player`, `BrewingSystem` |
+| Classes | PascalCase | `Player`, `FollowCamera` |
 | Public fields / constants | PascalCase | `Speed`, `JumpVelocity` |
-| Private fields | `_camelCase` | `_isGrounded` |
+| Private fields | `_camelCase` | `_mesh`, `_coyoteTimer` |
 | Local variables | camelCase | `inputDir`, `velocity` |
 | Methods | PascalCase | `ApplyGravity()` |
-| Godot lifecycle overrides | Underscore prefix (engine convention) | `_Ready()`, `_PhysicsProcess()` |
+| Godot lifecycle overrides | Underscore prefix | `_Ready()`, `_PhysicsProcess()` |
 | Signals | PascalCase, past-tense | `BrewingCompleted` |
 
 ### Braces & Indentation
 
 - **Allman style** — opening brace on its own line.
-- **Tabs** for indentation (Godot's C# default; aligns with `.editorconfig` tab width of 4).
-
-```csharp
-public override void _PhysicsProcess(double delta)
-{
-    Vector3 velocity = Velocity;
-
-    if (!IsOnFloor())
-    {
-        velocity += GetGravity() * (float)delta;
-    }
-
-    Velocity = velocity;
-    MoveAndSlide();
-}
-```
+- **Tabs** for indentation (matches `.editorconfig`).
 
 ### Types
 
@@ -209,65 +168,48 @@ public override void _PhysicsProcess(double delta)
   System.Numerics equivalents.
 - Use `float` (not `double`) for spatial values to match Godot's internal precision.
 - `_PhysicsProcess` and `_Process` receive `double delta`; cast to `float` when passing
-  into Godot math operations: `(float)delta`.
+  into Godot math operations.
 
 ### Constants
 
 Declare magic numbers as `const` fields with a descriptive name:
 
 ```csharp
-public const float Speed = 5.0f;
-public const float JumpVelocity = 4.5f;
+public const float Speed = 6.0f;
+public const float JumpVelocity = 5.5f;
 ```
 
-### Godot-Specific Patterns
+### XML Documentation
 
-**CharacterBody3D physics loop** (idiomatic pattern — read → modify → write → move):
+Use XML documentation for public classes and members:
 
 ```csharp
-public override void _PhysicsProcess(double delta)
-{
-    Vector3 velocity = Velocity;
-
-    // Apply gravity
-    if (!IsOnFloor())
-        velocity += GetGravity() * (float)delta;
-
-    // Read input
-    Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-    Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-
-    if (direction != Vector3.Zero)
-        velocity.X = direction.X * Speed;
-    else
-        velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
-
-    Velocity = velocity;
-    MoveAndSlide();
-}
+/// <summary>
+/// Seconds the player can still jump after walking off a ledge.
+/// </summary>
+public const float CoyoteTime = 0.12f;
 ```
-
-**Node references** — cache node references in `_Ready()` using `GetNode<T>()` or
-`[Export]` properties; avoid repeated `GetNode` calls inside per-frame methods.
 
 ### Error Handling
 
 - Use `GD.PrintErr()` / `GD.PushError()` for engine-level errors (visible in Godot output).
-- Use standard C# exceptions (`ArgumentException`, `InvalidOperationException`) for
-  logic errors in non-Godot code paths.
+- Use standard C# exceptions for logic errors in non-Godot code paths.
 - Validate `[Export]` node references in `_Ready()` with an early `null` check and
   `GD.PushError()` before proceeding.
 
-```csharp
-public override void _Ready()
-{
-    if (_camera == null)
-    {
-        GD.PushError($"{Name}: _camera export is not assigned.");
-        return;
-    }
-}
-```
+---
+
+## Input Mappings
+
+Defined in `project.godot`:
+
+| Action | Keys | Gamepad |
+|--------|------|---------|
+| `ui_left` | A, Left Arrow | D-pad Left, Left Stick Left |
+| `ui_right` | D, Right Arrow | D-pad Right, Right Stick Right |
+| `ui_up` | W, Up Arrow | D-pad Up, Left Stick Up |
+| `ui_down` | S, Down Arrow | D-pad Down, Left Stick Down |
+| `ui_accept` | Space | A button |
 
 ---
 
@@ -276,8 +218,7 @@ public override void _Ready()
 - Scene files use the `.tscn` (text) format — never binary `.scn`.
 - Prefabs (reusable sub-scenes) go in `Prefabs/` with a subdirectory matching their domain.
 - Top-level playable scenes go in `Scenes/`.
-- One C# script per scene/node — name the script the same as the root node (e.g.
-  `Player.cs` for the root node `Player`).
+- One C# script per scene/node — name the script the same as the root node.
 - `.uid` sidecar files are generated by Godot and **must be committed** alongside their
   corresponding `.cs` files.
 
@@ -288,5 +229,5 @@ public override void _Ready()
 - The `GODOT4` environment variable must point to the Godot 4 executable for VS Code
   debugging and headless CLI runs.
 - The `.godot/` cache directory is gitignored; never commit its contents.
-- EOL is enforced as **LF** by `.gitattributes` — configure your editor accordingly.
+- EOL is enforced as **LF** by `.gitattributes` — do not commit CRLF line endings.
 - All text files must use **UTF-8** encoding (enforced by `.editorconfig`).
