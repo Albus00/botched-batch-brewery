@@ -15,9 +15,24 @@ run/main_scene="uid://d2pgftx6ra10l"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MCPGameBridge="res://addons/godot_mcp/game_bridge/mcp_game_bridge.gd"
+
 [dotnet]
 
 project/assembly_name="Botched Batch Brewery"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
+
+[godot_mcp]
+
+bind_mode=1
+custom_bind_ip=""
+port_override_enabled=false
+port_override=6550
 
 [input]
 
