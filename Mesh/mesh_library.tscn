@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b0jeaerw6gxbf"]
+
+[ext_resource type="PackedScene" uid="uid://daerx64bqjnb8" path="res://Mesh/Factory/floor.blend" id="1_knpc7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ct76k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je2l1"]
+albedo_color = Color(0.6946327, 0.2927491, 0.013862619, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaysf"]
+
+[node name="Root" type="Node3D" unique_id=1126813869]
+
+[node name="Wall" type="MeshInstance3D" parent="." unique_id=780660715]
+mesh = SubResource("BoxMesh_ct76k")
+surface_material_override/0 = SubResource("StandardMaterial3D_je2l1")
+
+[node name="StaticBody" type="StaticBody3D" parent="Wall" unique_id=1506374344]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Wall/StaticBody" unique_id=2111687888]
+shape = SubResource("BoxShape3D_uaysf")
+
+[node name="Floor" parent="." unique_id=2137287212 instance=ExtResource("1_knpc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.101)
